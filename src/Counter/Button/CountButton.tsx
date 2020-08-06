@@ -3,7 +3,8 @@ import './CountButton.css'
 
 type CountButtonPropsType ={
     title: string
-    count: number
+    minCount: number
+    maxCount: number
     buttonAction: () => void
     disabled: boolean
 }

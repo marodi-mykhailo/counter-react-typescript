@@ -1,18 +1,33 @@
-import React, {useState} from "react";
+import React from "react";
 import './SettingsDisplay.css'
 import {SettingsInput} from "./SettingsInput/SettingsInput";
 
-export function SettingsDisplay() {
+type SettingsDisplayPropsType = {
+    updateMaxCount: (maxValue: number) => void
+    updateMinCount: (minValue: number) => void
+}
 
-    let [value, setValue] = useState({
-        max: 1,
-        min: 0
-    })
+export function SettingsDisplay(props: SettingsDisplayPropsType) {
 
-    return (
-        <div className={'settings-display__wrapper'}>
-            <SettingsInput title={'max value'} value={value.max}/>
-            <SettingsInput title={'min value'} value={value.min}/>
-        </div>
-    )
+
+    const inputOnChange = (id: string, value: number) => {
+        if(id==='max'){
+            props.updateMaxCount(value)
+        }
+        if(id === 'min'){
+            props.updateMinCount(value)
+        }
+    }
+
+    // localStorage.setItem('valueLocalStorage', JSON.stringify(values))
+
+
+return (
+    <div className={'settings-display__wrapper'}>
+        <SettingsInput id={'max'} title={'max value'} updateMaxCount={props.updateMaxCount}
+                       updateMinCount={props.updateMinCount} inputOnChange={inputOnChange}/>
+        <SettingsInput id={'min'} title={'min value'} updateMaxCount={props.updateMaxCount}
+                       updateMinCount={props.updateMinCount} inputOnChange={inputOnChange}/>
+    </div>
+)
 }

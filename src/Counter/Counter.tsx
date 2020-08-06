@@ -7,10 +7,13 @@ import {SettingsDisplay} from "./Display/SettingsDisplay/SettingsDisplay";
 
 
 type CounterPropsType = {
-    count: number
+    minCount: number
+    maxCount: number
     display: displayType
     incCount: () => void
     resetCount: () => void
+    updateMaxCount: (maxValue:number) => void
+    updateMinCount: (minValue: number) => void
 }
 
 export function Counter(props: CounterPropsType) {
@@ -18,23 +21,26 @@ export function Counter(props: CounterPropsType) {
     return (
         <div className={"count__wrapper"}>
             <div className={"count-num__box"}>
-                {props.display === 'count' ? <CountDisplay count={props.count}/> : <SettingsDisplay/>}
+                {props.display === 'count' ? <CountDisplay minCount={props.minCount} maxCount={props.maxCount} updateMaxCount={props.updateMaxCount} updateMinCount={props.updateMinCount}/> : <SettingsDisplay updateMaxCount={props.updateMaxCount} updateMinCount={props.updateMinCount}/>}
             </div>
             <div className={"count-button__box"}>
                 {props.display === 'count' ? <div className={"count-button__box__wrapper"}><CountButton
                     title={'Inc'}
-                    count={props.count}
+                    minCount={props.minCount}
+                    maxCount = {props.maxCount}
                     buttonAction={props.incCount}
-                    disabled={props.count >= 5}/>
+                    disabled={props.minCount >= props.maxCount}/>
                     <CountButton
                         title={'Reset'}
-                        count={props.count}
+                        minCount={props.minCount}
+                        maxCount = {props.maxCount}
                         buttonAction={props.resetCount}
-                        disabled={props.count === 0}/></div> : <CountButton
+                        disabled={props.minCount === 0}/></div> : <CountButton
                     title={'Set'}
-                    count={props.count}
+                    minCount={props.minCount}
+                    maxCount = {props.maxCount}
                     buttonAction={props.incCount}
-                    disabled={props.count >= 5}/>}
+                    disabled={props.minCount >= props.maxCount}/>}
 
             </div>
         </div>

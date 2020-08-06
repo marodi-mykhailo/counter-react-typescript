@@ -2,33 +2,50 @@ import React, {useState} from 'react';
 import './App.css';
 import {Counter} from "./Counter/Counter";
 
-export type displayType = 'count'| 'settings'
+export type displayType = 'count' | 'settings'
+
 
 function App() {
 
-    let [count, setCount] = useState(0);
+    let [maxCount, setMaxCount] = useState(8);
+    let [minCount, setMinCount] = useState(4);
 
     const incCount = () => {
-        count++
-        setCount(count)
+        minCount++
+        setMinCount(minCount)
     }
     const resetCount = () => {
-        setCount(0);
+        setMinCount(4);
+    }
+
+    const updateMaxCount = (maxValue: number) => {
+        setMaxCount(maxValue)
+    }
+
+    const updateMinCount = (minValue: number) =>{
+        setMinCount(minValue)
     }
 
     return (
         <div className={"container app__wrapper"}>
             <Counter
-                count={count}
+                minCount={minCount}
+                maxCount={maxCount}
                 display={'settings'}
                 incCount={incCount}
                 resetCount={resetCount}
+                updateMaxCount={updateMaxCount}
+                updateMinCount={updateMinCount}
+
             />
             <Counter
-                count={count}
+                minCount={minCount}
+                maxCount={maxCount}
                 display={'count'}
                 incCount={incCount}
                 resetCount={resetCount}
+                updateMaxCount={updateMaxCount}
+                updateMinCount={updateMinCount}
             />
         </div>
     )
