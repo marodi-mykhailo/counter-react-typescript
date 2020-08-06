@@ -1,0 +1,15 @@
+.app__wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+.container{
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1100px){
+    .app__wrapper{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,18 @@
+.count-num__span {
+    color: #2e333c;
+    display: block;
+    margin: 30px auto;
+    padding: 40px 0;
+}
+
+.count-num__span p {
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.max-count {
+    color: red;
+}

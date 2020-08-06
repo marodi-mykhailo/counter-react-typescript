@@ -1,7 +1,7 @@
 .count__wrapper {
     border: 3px solid deepskyblue;
     border-radius: 10px;
-    max-width: 500px;
+    min-width: 500px;
     margin: 10% auto 0 auto;
 }
 
@@ -12,20 +12,6 @@
     border-radius: 10px;
 }
 
-.count-num__span {
-    color: #2e333c;
-    display: block;
-    margin: 30px auto;
-    padding: 40px 0;
-}
-
-.count-num__span p {
-    text-align: center;
-    font-size: 80px;
-    font-weight: bold;
-    padding: 10px 0;
-    margin: 0;
-}
 .count-button__box {
     border: 3px solid deepskyblue;
     border-radius: 10px;
@@ -35,9 +21,10 @@
     justify-content: space-around;
 
 }
-.max-count {
-    color: red;
+.count-button__box__wrapper{
+    display: flex;
 }
+
 
 
 
