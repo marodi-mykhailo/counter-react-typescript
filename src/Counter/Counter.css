@@ -26,7 +26,6 @@
     padding: 10px 0;
     margin: 0;
 }
-
 .count-button__box {
     border: 3px solid deepskyblue;
     border-radius: 10px;
@@ -36,35 +35,9 @@
     justify-content: space-around;
 
 }
-
-.count-button {
-    font-family: sans-serif;
-    font-weight: bold;
-    border: none;
-    background-color: #84e7fb;
-    border-radius: 10px;
-    line-height: 2;
-    font-size: 34px;
-    margin: 20px;
-    padding: 0 20px;
-
-}
-
-.count-button:focus {
-    outline: none;
-}
-
-.count-button:active {
-    background: #2e333c;
-    color: #84e7fb;
-}
-
-
 .max-count {
     color: red;
 }
 
-.count-button:disabled {
-    opacity: .5;
-}
+
 

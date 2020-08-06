@@ -1,30 +1,33 @@
 import React, {useState} from "react";
 import './Counter.css'
+import {CountButton} from "./Button/CountButton";
 
-export function Counter() {
 
-    let [count, setCount] = useState(0);
+type CounterPropsType = {
+    count: number
+    incCount: () => void
+    resetCount: () => void
+}
 
-    const incCount = () =>{
-        count++
-        setCount(count)
-    }
-    const resetCount = () =>{
-        setCount(0);
-    }
+export function Counter(props: CounterPropsType) {
 
-    return(
+    return (
         <div className={"count__wrapper"}>
             <div className={"count-num__box"}>
-                <span className={"count-num__span"}><p className={count===5 ? "max-count":""}>{count}</p></span>
+                <span className={"count-num__span"}><p
+                    className={props.count === 5 ? "max-count" : ""}>{props.count}</p></span>
             </div>
             <div className={"count-button__box"}>
-                <div className={"count-button__wrapper"}>
-                    <button className={"count-button"} disabled={(count>=5)} onClick={incCount}>Inc</button>
-                </div>
-                <div className={"count-button__wrapper"}>
-                    <button className={"count-button"}disabled={count===0} onClick={resetCount}>Reset</button>
-                </div>
+                <CountButton
+                    title={'Inc'}
+                    count={props.count}
+                    buttonAction={props.incCount}
+                    disabled={props.count >= 5}/>
+                <CountButton
+                    title={'Reset'}
+                    count={props.count}
+                    buttonAction={props.resetCount}
+                    disabled={props.count === 0}/>
             </div>
         </div>
     )
