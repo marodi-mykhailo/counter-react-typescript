@@ -9,7 +9,7 @@ type CountDisplayPropsType = {
 }
 
 export function CountDisplay(props: CountDisplayPropsType) {
-    let minMaxValue;
+    //let minMaxValue;
     /*const localStorageValue =  localStorage.getItem('valueLocalStorage');
     if(localStorageValue !== null){
           minMaxValue = JSON.parse(localStorageValue)

@@ -18,12 +18,9 @@ function App() {
         setMinCount(4);
     }
 
-    const updateMaxCount = (maxValue: number) => {
-        setMaxCount(maxValue)
-    }
-
-    const updateMinCount = (minValue: number) =>{
+    const setMaxMinValue = (maxValue: number, minValue: number) =>{
         setMinCount(minValue)
+        setMaxCount(maxValue)
     }
 
     return (
@@ -34,8 +31,8 @@ function App() {
                 display={'settings'}
                 incCount={incCount}
                 resetCount={resetCount}
-                updateMaxCount={updateMaxCount}
-                updateMinCount={updateMinCount}
+
+                setMinMaxValue = {setMaxMinValue}
 
             />
             <Counter
@@ -44,8 +41,8 @@ function App() {
                 display={'count'}
                 incCount={incCount}
                 resetCount={resetCount}
-                updateMaxCount={updateMaxCount}
-                updateMinCount={updateMinCount}
+
+                setMinMaxValue = {setMaxMinValue}
             />
         </div>
     )

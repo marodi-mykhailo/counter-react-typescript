@@ -1,6 +1,6 @@
 import React from "react";
 import './Counter.css'
-import {CountButton} from "./Button/CountButton";
+import {CountButton} from "./Button/CountButton/CountButton";
 import {CountDisplay} from "./Display/CountDisplay/CountDisplay";
 import {displayType} from "../App";
 import {SettingsDisplay} from "./Display/SettingsDisplay/SettingsDisplay";
@@ -12,16 +12,33 @@ type CounterPropsType = {
     display: displayType
     incCount: () => void
     resetCount: () => void
-    updateMaxCount: (maxValue:number) => void
-    updateMinCount: (minValue: number) => void
+    /*updateMaxCount: (maxValue:number) => void
+    updateMinCount: (minValue: number) => void*/
+    setMinMaxValue: (maxValue: number, minValue: number)  => void
+
 }
 
 export function Counter(props: CounterPropsType) {
 
+    let updateMaxValue: number
+    let updateMinValue: number;
+
+    const setMinMaxHandler = () =>{
+       props.setMinMaxValue(updateMaxValue, updateMinValue)
+    }
+
+    const updateMaxCount = (maxValue: number) => {
+        updateMaxValue =  maxValue
+    }
+
+    const updateMinCount = (minValue: number) =>{
+        updateMinValue =  minValue
+    }
+
     return (
         <div className={"count__wrapper"}>
             <div className={"count-num__box"}>
-                {props.display === 'count' ? <CountDisplay minCount={props.minCount} maxCount={props.maxCount} updateMaxCount={props.updateMaxCount} updateMinCount={props.updateMinCount}/> : <SettingsDisplay updateMaxCount={props.updateMaxCount} updateMinCount={props.updateMinCount}/>}
+                {props.display === 'count' ? <CountDisplay minCount={props.minCount} maxCount={props.maxCount} updateMaxCount={updateMaxCount} updateMinCount={updateMinCount}/> : <SettingsDisplay updateMaxCount={updateMaxCount} updateMinCount={updateMinCount}/>}
             </div>
             <div className={"count-button__box"}>
                 {props.display === 'count' ? <div className={"count-button__box__wrapper"}><CountButton
@@ -39,7 +56,7 @@ export function Counter(props: CounterPropsType) {
                     title={'Set'}
                     minCount={props.minCount}
                     maxCount = {props.maxCount}
-                    buttonAction={props.incCount}
+                    buttonAction={setMinMaxHandler}
                     disabled={props.minCount >= props.maxCount}/>}
 
             </div>
