@@ -9,7 +9,7 @@ function App() {
 
     let [maxCount, setMaxCount] = useState(8);
     let [minCount, setMinCount] = useState(4);
-
+    let [disable, setDisable] = useState(false)
     const incCount = () => {
         minCount++
         setMinCount(minCount)
@@ -18,10 +18,19 @@ function App() {
         setMinCount(4);
     }
 
+
     const setMaxMinValue = (maxValue: number, minValue: number) =>{
+        setMaxCount(maxValue)
         setMinCount(minValue)
+    }
+    const updateMaxCount = (maxValue: number) =>{
         setMaxCount(maxValue)
     }
+
+    const updateMinCount = (minValue: number) => {
+        setMinCount(minValue)
+    }
+
 
     return (
         <div className={"container app__wrapper"}>
@@ -31,9 +40,9 @@ function App() {
                 display={'settings'}
                 incCount={incCount}
                 resetCount={resetCount}
-
                 setMinMaxValue = {setMaxMinValue}
-
+                updateMaxCount={updateMaxCount}
+                updateMinCount={updateMinCount}
             />
             <Counter
                 minCount={minCount}
@@ -41,8 +50,9 @@ function App() {
                 display={'count'}
                 incCount={incCount}
                 resetCount={resetCount}
-
                 setMinMaxValue = {setMaxMinValue}
+                updateMaxCount={updateMaxCount}
+                updateMinCount={updateMinCount}
             />
         </div>
     )

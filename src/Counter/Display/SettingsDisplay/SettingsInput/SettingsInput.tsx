@@ -6,7 +6,7 @@ type SettingsInputPropsType = {
     title: string
     updateMaxCount: (maxValue: number) => void
     updateMinCount: (minValue: number) => void
-    inputOnChange: (id: string, value: number) => void
+    inputOnChange: (id: string, minValue: number) => void
 }
 
 export function SettingsInput(props: SettingsInputPropsType) {
