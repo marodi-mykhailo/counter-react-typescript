@@ -3,7 +3,7 @@ import './Counter.css'
 import {CountButton} from "./Button/CountButton/CountButton";
 import {CountDisplay} from "./Display/CountDisplay/CountDisplay";
 import {displayType} from "../App";
-import {SettingsDisplay} from "./Display/SettingsDisplay/SettingsDisplay";
+import {SettingsDisplay} from "../Settings/Display/SettingsDisplay/SettingsDisplay";
 
 
 type CounterPropsType = {
@@ -19,10 +19,6 @@ type CounterPropsType = {
 }
 
 export function Counter(props: CounterPropsType) {
-
-
-
-
 
     const setMinMaxHandler = () =>{
 
