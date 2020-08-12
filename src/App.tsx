@@ -11,6 +11,8 @@ function App() {
         min: Number(localStorage.getItem('minValue'))
     }
 
+
+
     let [maxCount, setMaxCount] = useState(Number(localStorage.getItem('maxValue')));
     let [minCount, setMinCount] = useState(Number(localStorage.getItem('minValue')));
 
@@ -22,8 +24,9 @@ function App() {
         setMinCount(newValues.min);
     }
 
-    const setValue = () =>{
-
+    let [inputFocus, setInputFocus] = useState(false)
+    const setInputActive = (inputFocusValue: boolean) =>{
+        setInputFocus(inputFocusValue)
     }
 
     const setMaxMinValue = () =>{
@@ -49,12 +52,15 @@ function App() {
                 updateMaxCount={updateMaxCount}
                 updateMinCount={updateMinCount}
                 setMaxMinValue = {setMaxMinValue}
+                setInputActive = {setInputActive}
+                inputFocus={inputFocus}
             />
             <Counter
                 minCount={minCount}
                 maxCount={maxCount}
                 incCount={incCount}
                 resetCount={resetCount}
+                inputFocus={inputFocus}
             />
         </div>
     )

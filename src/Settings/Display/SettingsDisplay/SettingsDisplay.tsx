@@ -5,6 +5,7 @@ import {SettingsInput} from "./SettingsInput/SettingsInput";
 type SettingsDisplayPropsType = {
     updateMaxCount: (maxValue: number) => void
     updateMinCount: (minValue: number) => void
+    setInputActive:(inputFocusValue: boolean) => void
 }
 
 export function SettingsDisplay(props: SettingsDisplayPropsType) {
@@ -23,9 +24,13 @@ export function SettingsDisplay(props: SettingsDisplayPropsType) {
     return (
         <div className={'settings-display__wrapper'}>
             <SettingsInput id={'max'} title={'max value'} updateMaxCount={props.updateMaxCount}
-                           updateMinCount={props.updateMinCount} inputOnChange={inputOnChange} defoltValue={Number(localStorage.getItem('maxValue'))}/>
+                           updateMinCount={props.updateMinCount} inputOnChange={inputOnChange} defoltValue={Number(localStorage.getItem('maxValue'))}
+                           setInputActive={props.setInputActive}
+            />
             <SettingsInput id={'min'} title={'min value'} updateMaxCount={props.updateMaxCount}
-                           updateMinCount={props.updateMinCount} inputOnChange={inputOnChange} defoltValue={Number(localStorage.getItem('minValue'))}/>
+                           updateMinCount={props.updateMinCount} inputOnChange={inputOnChange} defoltValue={Number(localStorage.getItem('minValue'))}
+                           setInputActive={props.setInputActive}
+            />
         </div>
     )
 }
