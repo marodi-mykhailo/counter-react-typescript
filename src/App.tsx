@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import {Counter} from "./Counter/Counter";
 import Settings from "./Settings/Settings";
-export type displayType = 'count' | 'settings'
+
+
 function App() {
 
     let [maxCount, setMaxCount] = useState(8);
@@ -35,12 +36,8 @@ function App() {
             <Counter
                 minCount={minCount}
                 maxCount={maxCount}
-                display={'settings'}
                 incCount={incCount}
                 resetCount={resetCount}
-                setMinMaxValue = {setMaxMinValue}
-                updateMaxCount={updateMaxCount}
-                updateMinCount={updateMinCount}
             />
             <Settings/>
         </div>
