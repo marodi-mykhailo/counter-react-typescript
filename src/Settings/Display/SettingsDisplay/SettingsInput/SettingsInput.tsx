@@ -9,7 +9,7 @@ type SettingsInputPropsType = {
     inputOnChange: (id: string, Value: number) => void
     defoltValue: number
     setInputActive:(inputFocusValue: boolean) => void
-
+    error: boolean
 }
 
 export function SettingsInput(props: SettingsInputPropsType) {
@@ -33,7 +33,7 @@ export function SettingsInput(props: SettingsInputPropsType) {
     return(
         <div className={"setting-input__wrapper"}>
             <p className={"setting-input__text"}>{props.title}: </p>
-            <input className={"setting-input__input"} type={"number"} onChange={onChangeHandler} value={value} onFocus={onFocusHandler} onBlur={onBlurHandler}   />
+            <input className={props.error ? "setting-input__input warning-inputs" : "setting-input__input"} type={"number"} onChange={onChangeHandler} value={value} onFocus={onFocusHandler} onBlur={onBlurHandler}   />
         </div>
     )
 }

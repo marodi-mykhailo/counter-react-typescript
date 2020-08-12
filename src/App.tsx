@@ -6,15 +6,18 @@ import Settings from "./Settings/Settings";
 
 function App() {
 
-    let newValues = {
-        max: Number(localStorage.getItem('maxValue')),
-        min: Number(localStorage.getItem('minValue'))
-    }
+
 
 
 
     let [maxCount, setMaxCount] = useState(Number(localStorage.getItem('maxValue')));
     let [minCount, setMinCount] = useState(Number(localStorage.getItem('minValue')));
+    let [error, setError] = useState(false)
+
+    let newValues = {
+        max: Number(localStorage.getItem('maxValue')),
+        min: Number(localStorage.getItem('minValue'))
+    }
 
     const incCount = () => {
         minCount++
@@ -35,12 +38,23 @@ function App() {
     }
     const updateMaxCount = (maxValue: number) =>{
         newValues.max = maxValue;
-        localStorage.setItem('maxValue', String(maxValue))
+        if(newValues.max>=0 && newValues.max > newValues.min){
+            localStorage.setItem('maxValue', String(maxValue))
+            setError(false)
+        }else {
+            setError(true)
+        }
+
     }
 
     const updateMinCount = (minValue: number) => {
         newValues.min = minValue
+        if(newValues.min>=0 && newValues.min < newValues.max){
         localStorage.setItem('minValue', String(minValue))
+            setError(false)
+        }else {
+            setError(true)
+        }
     }
 
 
@@ -54,6 +68,7 @@ function App() {
                 setMaxMinValue = {setMaxMinValue}
                 setInputActive = {setInputActive}
                 inputFocus={inputFocus}
+                error = {error}
             />
             <Counter
                 minCount={minCount}
@@ -61,6 +76,7 @@ function App() {
                 incCount={incCount}
                 resetCount={resetCount}
                 inputFocus={inputFocus}
+                error = {error}
             />
         </div>
     )

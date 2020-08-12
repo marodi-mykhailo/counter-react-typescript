@@ -12,6 +12,7 @@ type SettingsPropsType = {
     setMaxMinValue: () => void
     setInputActive: (inputFocusValue: boolean) => void
     inputFocus:boolean
+    error: boolean
 
 }
 
@@ -20,13 +21,14 @@ function Settings(props: SettingsPropsType) {
     return (
         <div className={"count__wrapper"}>
             <div className={"count-num__box"}>
-                <SettingsDisplay updateMaxCount={props.updateMaxCount} updateMinCount={props.updateMinCount} setInputActive={props.setInputActive}/>
+                <SettingsDisplay updateMaxCount={props.updateMaxCount} updateMinCount={props.updateMinCount} setInputActive={props.setInputActive} error={props.error}/>
             </div>
             <div className={"count-button__box"}>
                 <div className={"count-button__box__wrapper"}>
                     <CountButton title={"Set"} minCount={props.minCount} maxCount={props.maxCount}
                                  buttonAction={props.setMaxMinValue} disabled={false}
                                  inputFocus={!props.inputFocus}
+                                 error={props.error}
                     />
                 </div>
             </div>

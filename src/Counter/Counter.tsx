@@ -10,6 +10,7 @@ type CounterPropsType = {
     incCount: () => void
     resetCount: () => void
     inputFocus: boolean
+    error: boolean
 }
 
 export function Counter(props: CounterPropsType) {
@@ -17,7 +18,7 @@ export function Counter(props: CounterPropsType) {
     return (
         <div className={"count__wrapper"}>
             <div className={"count-num__box"}>
-                <CountDisplay minCount={props.minCount} maxCount={props.maxCount} inputFocus={props.inputFocus}/>
+                <CountDisplay minCount={props.minCount} maxCount={props.maxCount} inputFocus={props.inputFocus} error={props.error}/>
             </div>
             <div className={"count-button__box"}>
                 <div className={"count-button__box__wrapper"}>
@@ -27,14 +28,18 @@ export function Counter(props: CounterPropsType) {
                         maxCount={props.maxCount}
                         buttonAction={props.incCount}
                         disabled={props.minCount >= props.maxCount}
-                        inputFocus={props.inputFocus}/>
+                        inputFocus={props.inputFocus}
+                        error = {props.error}/>
+
                     <CountButton
                         title={'Reset'}
                         minCount={props.minCount}
                         maxCount={props.maxCount}
                         buttonAction={props.resetCount}
                         disabled={props.minCount === 0}
-                        inputFocus={props.inputFocus}/>
+                        inputFocus={props.inputFocus}
+                        error = {props.error}
+                    />
                 </div>
             </div>
         </div>
