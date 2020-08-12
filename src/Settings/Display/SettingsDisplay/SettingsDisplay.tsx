@@ -23,9 +23,9 @@ export function SettingsDisplay(props: SettingsDisplayPropsType) {
     return (
         <div className={'settings-display__wrapper'}>
             <SettingsInput id={'max'} title={'max value'} updateMaxCount={props.updateMaxCount}
-                           updateMinCount={props.updateMinCount} inputOnChange={inputOnChange}/>
+                           updateMinCount={props.updateMinCount} inputOnChange={inputOnChange} defoltValue={Number(localStorage.getItem('maxValue'))}/>
             <SettingsInput id={'min'} title={'min value'} updateMaxCount={props.updateMaxCount}
-                           updateMinCount={props.updateMinCount} inputOnChange={inputOnChange}/>
+                           updateMinCount={props.updateMinCount} inputOnChange={inputOnChange} defoltValue={Number(localStorage.getItem('minValue'))}/>
         </div>
     )
 }

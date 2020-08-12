@@ -6,40 +6,56 @@ import Settings from "./Settings/Settings";
 
 function App() {
 
-    let [maxCount, setMaxCount] = useState(8);
-    let [minCount, setMinCount] = useState(4);
-    let [disable, setDisable] = useState(false)
+    let newValues = {
+        max: Number(localStorage.getItem('maxValue')),
+        min: Number(localStorage.getItem('minValue'))
+    }
+
+    let [maxCount, setMaxCount] = useState(Number(localStorage.getItem('maxValue')));
+    let [minCount, setMinCount] = useState(Number(localStorage.getItem('minValue')));
+
     const incCount = () => {
         minCount++
         setMinCount(minCount)
     }
     const resetCount = () => {
-        setMinCount(4);
+        setMinCount(newValues.min);
     }
 
+    const setValue = () =>{
 
-    const setMaxMinValue = (maxValue: number, minValue: number) =>{
-        setMaxCount(maxValue)
-        setMinCount(minValue)
+    }
+
+    const setMaxMinValue = () =>{
+        setMaxCount(newValues.max)
+        setMinCount(newValues.min)
     }
     const updateMaxCount = (maxValue: number) =>{
-        setMaxCount(maxValue)
+        newValues.max = maxValue;
+        localStorage.setItem('maxValue', String(maxValue))
     }
 
     const updateMinCount = (minValue: number) => {
-        setMinCount(minValue)
+        newValues.min = minValue
+        localStorage.setItem('minValue', String(minValue))
     }
 
 
     return (
         <div className={"container app__wrapper"}>
+            <Settings
+                minCount={minCount}
+                maxCount={maxCount}
+                updateMaxCount={updateMaxCount}
+                updateMinCount={updateMinCount}
+                setMaxMinValue = {setMaxMinValue}
+            />
             <Counter
                 minCount={minCount}
                 maxCount={maxCount}
                 incCount={incCount}
                 resetCount={resetCount}
             />
-            <Settings/>
         </div>
     )
 }
