@@ -4,9 +4,7 @@ import './SettingsInput.css'
 type SettingsInputPropsType = {
     id: string
     title: string
-    updateMaxCount: (maxValue: number) => void
-    updateMinCount: (minValue: number) => void
-    inputOnChange: (id: string, Value: number) => void
+    inputOnChange: (id: string, value: number) => void
     defoltValue: number
     setInputActive:(inputFocusValue: boolean) => void
     error: boolean
@@ -16,7 +14,7 @@ export function SettingsInput(props: SettingsInputPropsType) {
     let [inputFocus, setInputFocus] = useState(true)
     let [value, setValue] = useState(String(props.defoltValue))
 
-    const  onChangeHandler = (e:ChangeEvent<HTMLInputElement>) =>{
+    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) =>{
         props.inputOnChange(props.id, Number(e.currentTarget.value))
         setValue(e.currentTarget.value)
     }

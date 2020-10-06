@@ -18,6 +18,7 @@ type SettingsPropsType = {
 
 function Settings(props: SettingsPropsType) {
 
+
     return (
         <div className={"count__wrapper"}>
             <div className={"count-num__box"}>
@@ -25,7 +26,7 @@ function Settings(props: SettingsPropsType) {
             </div>
             <div className={"count-button__box"}>
                 <div className={"count-button__box__wrapper"}>
-                    <CountButton title={"Set"} minCount={props.minCount} maxCount={props.maxCount}
+                    <CountButton title={"Set"}
                                  buttonAction={props.setMaxMinValue} disabled={false}
                                  inputFocus={!props.inputFocus}
                                  error={props.error}

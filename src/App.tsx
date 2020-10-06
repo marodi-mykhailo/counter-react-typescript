@@ -14,14 +14,7 @@ function App() {
         min: Number(localStorage.getItem('minValue'))
     }
 
-    const incCount = () => {
-        minCount++
-        setMinCount(minCount)
-    }
 
-    const resetCount = () => {
-        setMinCount(newValues.min);
-    }
 
     let [inputFocus, setInputFocus] = useState(false)
     const setInputActive = (inputFocusValue: boolean) => {
@@ -68,10 +61,6 @@ function App() {
                 error={error}
             />
             <Counter
-                minCount={minCount}
-                maxCount={maxCount}
-                incCount={incCount}
-                resetCount={resetCount}
                 inputFocus={inputFocus}
                 error={error}
             />

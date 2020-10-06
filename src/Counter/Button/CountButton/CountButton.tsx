@@ -1,11 +1,10 @@
 import React from "react";
 import './CountButton.css'
+import {ActionsType} from "../../../state/counter-reducer";
 
 type CountButtonPropsType ={
     title: string
-    minCount: number
-    maxCount: number
-    buttonAction: () => void
+    buttonAction: ([key]: any) => void
     disabled: boolean
     inputFocus: boolean
     error: boolean
