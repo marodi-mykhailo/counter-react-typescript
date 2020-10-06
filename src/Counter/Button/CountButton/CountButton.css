@@ -1,5 +1,3 @@
-
-
 .count-button {
     font-family: sans-serif;
     font-weight: bold;
@@ -10,7 +8,6 @@
     font-size: 34px;
     margin: 20px;
     padding: 0 20px;
-
 }
 
 .count-button:focus {

@@ -21,7 +21,6 @@ export function SettingsDisplay(props: SettingsDisplayPropsType) {
 
     // localStorage.setItem('valueLocalStorage', JSON.stringify(values))
 
-
     return (
         <div className={'settings-display__wrapper'}>
             <SettingsInput  id={'max'} title={'max value'} updateMaxCount={props.updateMaxCount}

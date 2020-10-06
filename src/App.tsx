@@ -3,12 +3,7 @@ import './App.css';
 import {Counter} from "./Counter/Counter";
 import Settings from "./Settings/Settings";
 
-
 function App() {
-
-
-
-
 
     let [maxCount, setMaxCount] = useState(Number(localStorage.getItem('maxValue')));
     let [minCount, setMinCount] = useState(Number(localStorage.getItem('minValue')));
@@ -23,25 +18,27 @@ function App() {
         minCount++
         setMinCount(minCount)
     }
+
     const resetCount = () => {
         setMinCount(newValues.min);
     }
 
     let [inputFocus, setInputFocus] = useState(false)
-    const setInputActive = (inputFocusValue: boolean) =>{
+    const setInputActive = (inputFocusValue: boolean) => {
         setInputFocus(inputFocusValue)
     }
 
-    const setMaxMinValue = () =>{
+    const setMaxMinValue = () => {
         setMaxCount(newValues.max)
         setMinCount(newValues.min)
     }
-    const updateMaxCount = (maxValue: number) =>{
+
+    const updateMaxCount = (maxValue: number) => {
         newValues.max = maxValue;
-        if(newValues.max>=0 && newValues.max > newValues.min){
+        if (newValues.max >= 0 && newValues.max > newValues.min) {
             localStorage.setItem('maxValue', String(maxValue))
             setError(false)
-        }else {
+        } else {
             setError(true)
         }
 
@@ -49,10 +46,10 @@ function App() {
 
     const updateMinCount = (minValue: number) => {
         newValues.min = minValue
-        if(newValues.min>=0 && newValues.min < newValues.max){
-        localStorage.setItem('minValue', String(minValue))
+        if (newValues.min >= 0 && newValues.min < newValues.max) {
+            localStorage.setItem('minValue', String(minValue))
             setError(false)
-        }else {
+        } else {
             setError(true)
         }
     }
@@ -65,10 +62,10 @@ function App() {
                 maxCount={maxCount}
                 updateMaxCount={updateMaxCount}
                 updateMinCount={updateMinCount}
-                setMaxMinValue = {setMaxMinValue}
-                setInputActive = {setInputActive}
+                setMaxMinValue={setMaxMinValue}
+                setInputActive={setInputActive}
                 inputFocus={inputFocus}
-                error = {error}
+                error={error}
             />
             <Counter
                 minCount={minCount}
@@ -76,7 +73,7 @@ function App() {
                 incCount={incCount}
                 resetCount={resetCount}
                 inputFocus={inputFocus}
-                error = {error}
+                error={error}
             />
         </div>
     )
